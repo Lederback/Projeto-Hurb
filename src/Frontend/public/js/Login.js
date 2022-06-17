@@ -2,7 +2,7 @@ function checkLogin(){
     var EMAIL = $("#log").val();
     var PASSWORD = $("#pass").val(); 
 
-    var url = "getGeneralVision/checkLogin/" + EMAIL;   
+    var url = "https://projeto-hurb-grupo1.herokuapp.com/checkLogin/" + EMAIL;   
 
     $.get(url, function(resultado){
         
