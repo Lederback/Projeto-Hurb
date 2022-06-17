@@ -9,8 +9,8 @@ const DBPATH = 'DataBase/BancoHurb.db';
 
 const port = process.env.PORT || 5555;
 
-app.use(express.static("src/Frontend/public"));
-app.use(express.static("src/Frontend/public/html"));
+app.use(express.static("../Frontend/public"));
+app.use(express.static("../Frontend/public/html"));
 
 app.listen(port, () => {
 	console.log(`Server running at :${port}/`);
