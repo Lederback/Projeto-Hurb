@@ -2,7 +2,7 @@
   "name": "projeto-hurb",
   "version": "1.0.0",
   "description": "Projeto de antecipação",
-  "main": "src/Backend/app.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
