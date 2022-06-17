@@ -1,0 +1,235 @@
+/* Mensagem de boas vindas */
+.welcome {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    color: #3468fc;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.welcome p {
+    font-size: 30px;
+}
+
+.welcome-mask {
+    padding: 20px;
+}
+
+
+/* Carrossel */
+
+.carousel-inner{
+    margin-top: -2,5%;
+}
+
+.item {
+    height: 55rem;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.233);
+}
+
+.carousel-title {
+    position: relative;
+    text-align: left;
+    font-size: 35px;
+    
+}
+
+.carousel-text {
+    position: relative;
+    text-align: left;
+    font-size: 16px;
+}
+
+.carousel-button {
+    display:flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 40%;
+    height: 40%;
+}
+
+.carousel-button button{
+    width: 50%;
+    height: 75%;
+    background-color: #3468FC;
+    color: white;
+    font-size: 2rem;
+}
+
+.overlay-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.3;
+    width: auto;
+}
+
+.container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 50px;
+}
+
+
+/* Área dos tipos */
+.type-zone-title {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.type-zone-title p {
+    font-size: 3.5rem;
+}
+
+.divisory {
+    background-color: #000000;
+    width: 10%;
+    height: 0.5rem;
+}
+
+.type-zone {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.type-box{
+    margin-bottom: 50px;
+    
+}
+
+.mask-hurb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3468FC;
+    width: 100%;
+    height: 30%;
+}
+
+.mask-hurb p {
+    color: #FFFFFF;
+    font-size: 64px;
+    font-weight: 500;
+}
+
+.mask-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #e4dada2f;
+    width: 100%;
+    height: 60%;
+}
+
+.mask-text {
+    display: flex;
+    width: 100%;
+    height: 60%;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 15rem;
+    font-weight: 500;
+    margin-bottom: 30%;
+
+}
+
+.mask-button {
+    display:flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+    margin-bottom: 10%;
+    
+}
+
+.mask-button button{
+    width: 50%;
+    height: 100%;
+    background-color: #3468FC;
+    color: white;
+    font-size: 2rem;
+    padding: 3%;
+}
+
+/* Modais */
+.modal-title {
+    text-align: center;
+    font-size: 32px;
+}
+
+
+.modal-body p {
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.modal-presentation {
+    text-align: left;
+}
+
+.menu {
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	height: 55px;
+	background-color: #3468FC;
+}
+
+.menu a {
+	color: white;
+	display: inline;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.menu p {
+	display: inline;
+	color: white;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.menu a:hover {
+	background-color: white;
+	color: #3468FC;
+	text-decoration: none;
+}
+
+#T_menu {
+	margin-top: 17px;
+}
+
+#H_menu {
+	font-weight: bold;
+	text-align: left;
+	font-size: 25px;
+	margin-top: 9px;
+
+}
+
+#L_menu {
+	text-align: right;
+	margin-top: 17px;
+}
+

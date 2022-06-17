@@ -1,0 +1,123 @@
+<!--Written by Renato-->
+<!DOCTYPE html>
+<html>
+    <!--Adding tilte to page, choosing css file and linking font to file-->
+    <head>
+        <meta charset="UTF-8">
+        <link href="../css/global.css" rel="stylesheet">
+        <link href="../css/MenuAdmin.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <title>
+            Hurb - Menu Admnin
+        </title>
+    </head>
+    <body>
+        <div class="page-menu-overlay">
+            <!--Header section where are filled with initial page content-->
+            <div class="page-header">
+                <div style="margin-left: 1%; margin-right: 2.5%;">
+                    <img src="../icons/image.png" width="110rem" height="40rem">
+                </div>
+                <div class="logout">
+                    <div class="logout-button">
+                        <a href="index.html">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Main section-->
+        <div class="main">
+            <!--Body section where are filled with all of principal content-->
+            <div class="page-body">
+                <h1 class="welcome-message">Olá administrador, bem vindo!</h1>
+                <br><br>
+                <div class="page-content">
+                    <div class="general-content">
+                        <div class="general-vision">
+                            <div>
+                                <h3>Quantidade de Antecipações</h4>
+                                <div class="general-vision-box">
+                                    <h1 id="total-amount-anticipations"></h1>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>Valor Total Antecipado</h4>
+                                <div class="general-vision-box">
+                                    <h1 id="total-amount-advance"></h1>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>Valor Total Taxado</h4>
+                                <div class="general-vision-box">
+                                    <h1 id="total-taxed-amount"></h1>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>Tipo Mais Solicitado</h4>
+                                <div class="general-vision-box">
+                                    <h1 id="most-requested-type"></h1>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="search-bar">
+                            <b>Barra de Pesquisa</b>
+                            <div class="bar">
+                                <input id="search-text" type="text">
+                                <select id="search-type" onchange="changeSearchType()">
+                                    <option value="Estabelecimento">Estabelecimento</option>
+                                    <option value="Pendentes">Solicitações Pendentes</option>
+                                    <option value="Passadas">Solicitações Passadas</option>
+                                </select>
+                                <button onclick="showSearch()">Pesquisar</button>
+                            </div>
+
+                            <table id="search-table">
+                                <tr id="partner-list">
+                                    <th class="hotel-id" id="left-border-table">ID</th>
+                                    <th class="hotel-name">Razão Social</th>
+                                    <th class="hotel-state">Estado</th>
+                                    <th class="hotel-tel">Telefone</th>
+                                    <th class="hotel-more" id="right-border-table"></th>
+                                </tr>
+                                <tr id="invoice-list">
+                                    <th class="invoice-note">Nota Fiscal</th>
+                                    <th class="invoice-partner-id">Esta. ID</th>
+                                    <th class="invoice-received-value">Valor Recebido</th>
+                                    <th class="invoice-taxed-value">Valor Taxado</th>
+                                    <th class="invoice-type">Tipo</th>
+                                    <th class="invoice-status">Status</th>
+                                    <th class="invoice-date">Data</th>
+                                </tr>
+                            </table>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="ranking">
+                        <h3>Ranking do principais antecipadores</h3>
+                        <table id="ranking-table">
+                            <tr>
+                                <th class="ranking-table-position" id="left-border-table">Pos.</th>
+                                <th class="ranking-table-id">Id</th>
+                                <th class="ranking-table-razao">Razão Social</th>
+                                <th class="ranking-table-qtd">Qtd.</th>
+                                <th class="ranking-table-total" id="right-border-table">Valor Antecipado</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <!--Footer section where are filled with final page content-->
+            <div class="page-footer">
+                <img src="../icons/hurb-logo.png" width="250rem" height="100rem">
+            </div>
+        </div>
+        
+        <script src="../js/MenuAdmin.js"></script>
+    </body>
+</html>

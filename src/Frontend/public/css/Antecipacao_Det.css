@@ -1,0 +1,131 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+	color: black;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-body {
+	margin-left: 50px;
+}
+
+.menu {
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	height: 55px;
+	background-color: #3468FC;
+}
+
+.menu a {
+	color: white;
+	display: inline;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.menu p {
+	display: inline;
+	color: white;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.menu a:hover {
+	background-color: white;
+	color: #3468FC;
+	text-decoration: none;
+}
+
+#T_menu {
+	margin-top: 17px;
+}
+
+#H_menu {
+	font-weight: bold;
+	text-align: left;
+	font-size: 25px;
+	margin-top: 9px;
+
+}
+
+#L_menu {
+	text-align: right;
+	margin-top: 17px;
+}
+
+.page-body {
+    margin-top: 75px;
+    width: auto;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
+
+.flyer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-style: solid;
+    border-top-right-radius: 15px 15px;
+	border-top-left-radius: 15px 15px;
+	border-bottom-left-radius: 15px 15px;
+	border-bottom-right-radius: 15px 15px;
+
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+    font-size: 48px;
+
+	background-image: url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/a1/d2/af/hotel-r-de-paris.jpg?w=900&h=-1&s=1");
+	background-position: center;
+	background-size: cover;
+
+
+    width: 60%;
+    height: 250px;
+    gap: 10%;
+} 
+
+.history-section {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+
+    font-size: 24px;
+}
+
+.details {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	margin: 20px;
+    font-size: 16px;
+}
+
+
+.col-sm-4 {
+    text-align: center;
+    border-style: solid;
+	border-radius: 50px 20px;
+	width: 20%;
+    height: 25px;
+	margin-left: 10%;
+	margin-bottom: 10px;
+	background-color: #3468FC;
+	color: white;
+	font-weight: bold;
+}
+
+.cSelection {
+	float: left;
+}

@@ -1,0 +1,377 @@
+/*Written by Renato*/
+* {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-menu-overlay {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    height: auto;
+    flex-direction: column;
+    position: fixed;
+    z-index: 1;
+}
+
+table {
+    border-radius: 10px;
+    border-style: none;
+}
+
+tr {
+    display: flex;
+}
+
+th {
+    display: flex;
+    flex-direction: row;
+    border-style: none;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    background-color: #8CAAFD;
+}
+
+td {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 2.25rem;
+    align-items: center;
+    justify-content: center;
+}
+
+td a {
+    text-decoration: none;
+}
+
+#left-border-table {
+    border-top-left-radius: 10px;
+}
+
+#right-border-table {
+    border-top-right-radius: 10px;
+}
+
+.header-menu {
+    display: flex; 
+    flex-direction: row; 
+    width: 90%; 
+    height: 100%;
+}
+
+.logout {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+}
+
+.logout-button {
+    margin-right: 1rem;
+}
+
+.logout-button a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.logout-button:hover {
+    cursor: pointer;
+}
+
+.page-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #3468FC;
+    height: 3rem;
+    width: 100%;
+    color: #FFFFFF;
+}
+
+.header-menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.header-menu-button:hover {
+    cursor: pointer;
+    background-color: #8CAAFD;
+}
+
+.page-body {
+    margin-top: 4.688rem;
+    width: auto;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
+
+.page-footer {
+    width: auto;
+    width: 100%;
+}
+
+.welcome-message {
+    color: #3468FC;
+    font-weight: 500;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.general-content {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    height: auto;
+}
+
+.general-vision {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+}
+
+.general-vision h1 {
+    font-weight: 400;
+}
+
+.vision-box {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+}
+
+.general-vision-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25rem;
+    border-width: 1px;
+    border-style: solid;
+    height: 5.25rem;
+    border-radius: 16px;
+    border-width: 1.5px;
+}
+
+.ranking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 35%;
+    height: auto;
+}
+
+.ranking table {
+    width: 100%;
+}
+
+.ranking-table-position {
+    min-width: 4%;
+    text-align: center;
+}
+
+.ranking-table-id {
+    width: 10%;
+    justify-content: center;
+    text-align: center;
+}
+
+.ranking-table-razao {
+    width: 45%;
+}
+
+.ranking-table-qtd {
+    min-width: 10%;
+    text-align: center;
+}
+
+.ranking-table-total {
+    width: 32.5%;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: column;
+}
+
+.bar {
+    display: flex; 
+    width: 97.5%;
+    height: 1.5rem;
+    flex-direction: row;
+    border-width: 2px;
+    height: 2.5rem;
+}
+
+.bar select, button:hover {
+    cursor: pointer;
+} 
+
+.bar input {
+    width: 70%; 
+    height: 100%; 
+    border-style: none;
+    outline: none;
+    background-color: #F2F2F2;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 1rem;
+    font-weight: 650;
+}
+
+.bar select {
+    width: 15%;
+    height: 100%;
+    outline: none;
+    text-align: center;
+    border-style: none;
+    background-color: #F2F2F2;
+}
+
+.bar button {
+    width: 15%;
+    height: 100%;
+    outline: none;
+    background-color: #FFFFFF;
+    border-style: none;
+    background-color: #F2F2F2;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#invoice-list {
+    display: flex;
+    width: 100%;
+}
+
+#partner-list {
+    display: flex;
+    width: 100%;
+}
+
+.hotel-id {
+    min-width: 5%;
+    text-align: center;
+}
+
+.hotel-name {
+    min-width: 40%;
+    max-width: 50%;
+}
+
+.hotel-state {
+    width: 20%;
+    max-width: 20%;
+}
+
+.hotel-tel {
+    width: 40%;
+    max-width: 40%;
+}
+
+.hotel-more {
+    min-width: 10%;
+    max-width: 10%;
+}
+
+.invoice-note {
+    width: 15%;
+    max-width: 20%;
+}
+
+.invoice-partner-id {
+    width: 10%;
+    max-width: 10%;
+}
+
+.invoice-partner-id td {
+    text-align: center; 
+}
+
+.invoice-received-value {
+    width: 25%;
+    max-width: 25%;
+}
+
+.invoice-taxed-value {
+    width: 25%;
+    max-width: 25%;
+}
+
+.invoice-date {
+    width: 30%;
+    max-width: 30%;
+}
+
+.invoice-type {
+    width: 10%;
+}
+
+.invoice-status {
+    width: 20%;
+    max-width: 20%;
+}
+
+.search-bar table {
+    margin-top: 5px;
+    overflow-x: scroll;
+    width: 98%;
+    max-height: 20rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .page-content {
+        flex-direction: column;
+    }
+
+    .general-content, .ranking {
+        width: 100%;
+    }
+
+    .general-vision {
+        gap: 200rem;
+    }
+
+    .search-bar table {
+        width: 100%;
+    }
+
+    .bar {
+        width: 99.5%;
+    }
+}
+
+@media only screen and (max-width: 568px) {
+    .general-vision-box {
+        width: 22.5rem;
+    }
+
+    .bar {
+        width: 99%;
+    }
+}

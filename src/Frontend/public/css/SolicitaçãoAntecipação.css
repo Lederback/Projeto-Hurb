@@ -1,0 +1,113 @@
+* {
+	font-family: 'Montserrat', sans-serif;
+	padding: 0;
+	margin: 0;
+
+}
+
+.menu {
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	height: 55px;
+	background-color: #3468FC;
+}
+
+.menu a {
+	color: white;
+	display: inline;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.menu p {
+	display: inline;
+	color: white;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.menu a:hover {
+	background-color: white;
+	color: #3468FC;
+	text-decoration: none;
+}
+
+#T_menu {
+	margin-top: 17px;
+}
+
+#H_menu {
+	font-weight: bold;
+	text-align: left;
+	font-size: 25px;
+	margin-top: 9px;
+
+}
+
+#L_menu {
+	text-align: right;
+	margin-top: 17px;
+}
+
+.ttl {
+	color: black;
+	font-size: 3rem;
+}
+
+.valor_saldo {
+	font-size: 4rem;
+	color: black;
+}
+
+.divizinha {
+	float: right;
+}
+
+.txt {
+
+	margin-left: 3%;
+	margin-top: 1%;
+}
+
+.opções {
+	font-size: large;
+	color: black;
+}
+
+.espaçamento1 {
+	display: inline;
+}
+
+.espaçamento1 b {
+	margin-right: 50px;
+}
+
+.espaçamento2 {
+	display: inline;
+}
+
+.espaçamento2 b {
+	margin-right: 110px;
+}
+
+.fechar {
+	display: flex;
+	justify-content: center;
+
+}
+
+.centralize-button {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#button-color {
+	background-color: #3468FC;
+}
+
+.choose {
+	display: none;
+}

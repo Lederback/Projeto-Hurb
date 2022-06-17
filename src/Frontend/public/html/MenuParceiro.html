@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <!--Adding tilte to page, choosing css file and linking font to file-->
+    <head>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" media="(max-width: 800px)" href="altura-max800.css" />
+		
+		<link href="../css/global.css" rel="stylesheet">
+		<link href="../css/MenuParceiro.css" rel="stylesheet">
+		
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <title>
+            Hurb - Menu Principal
+        </title>
+    </head>
+    <body>
+        <!--Main section-->
+        <div class="menu"> 
+		
+			<div class="col-sm-2" id="H_menu">
+			<p> Hurb </p> 
+			</div>
+			
+			<div class="col-sm-8" id="T_menu">
+				<a href="MenuParceiro.html"> Menu </a>
+				<p> | </p>
+				<a href="EditarPerfil.html"> Perfil </a>
+				<p> | </p>
+				<a href="SolicitaçãoAntecipação.html"> Faturar </a>
+				<p> | </p>
+				<a href="HistoricoSolicitacao.html"> Histórico </a>
+			</div>
+			
+			<div class="col-sm-2" id="L_menu">
+			<a  href="index.html" > Log Out </a> 
+			</div>
+			
+		</div>
+		
+		<div class="main">
+			<div class="page-body">
+				<div class="welcome"> 
+					<div class="welcome-mask">
+						<p id="nome">Olá Hoteleiro, seja bem vindo!</p>
+					</div>
+				</div>
+
+				<!--Carrossel-->
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					<!-- Indicadores -->
+					<ol class="carousel-indicators">
+					  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					</ol>
+				  
+					<!-- Slides -->
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<div class="overlay-image" style="background-image:url(../icons/computer-g0a3535b69_1920.jpg);"></div>
+							<div class="carousel-caption">
+								<h3 class="carousel-title">Faturamento de reservas</h3>
+								<p class="carousel-text">Fature suas reservas e escolha o tipo de antecipação desejado.</p>
+								<br>
+								<div class="carousel-button">
+									<button type="button" class="btn" onclick="changePage(0)">Faturar</button>
+								</div>
+							</div>
+					  	</div>
+					  	<div class="item">
+							<div class="overlay-image" style="background-image:url(../icons/damian-zaleski-RYyr-k3Ysqg-unsplash.jpg);"></div>
+							<div class="carousel-caption">
+								<h3 class="carousel-title">Status de solicitações</h3>
+								<p class="carousel-text">Acompanhe o status de solicitações pendentes.</p>
+								<br>
+								<div class="carousel-button">
+									<button type="button" class="btn" onclick="changePage(1)">Acompanhar</button>
+								</div>
+							</div>
+					  	</div>
+						<div class="item">
+							<div class="overlay-image" style="background-image:url(../icons/cloud-gc707705c4_1920.jpg);"></div>
+							<div class="carousel-caption">
+								<h3 class="carousel-title">Seu perfil</h3>
+								<p class="carousel-text">Acesse e visualize seus dados pessoais.</p>
+								<br>
+								<div class="carousel-button">
+									<button type="button" class="btn" onclick="changePage(2)">Gerenciar</button>
+								</div>
+							</div>
+					  	</div>
+					</div>
+				  
+					<!-- Controles -->
+					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+					  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					  <span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+					  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					  <span class="sr-only">Next</span>
+					</a>
+				</div>
+				
+				<!--Título dos Tipos-->
+				<div class="type-zone-title">
+					<p>Tipos de Antecipação</p>
+					
+				</div><br>
+				<!--Tipos-->
+				<div class="row">
+					<div class="type-box col-12 col-lg-4">
+						<div class="mask-hurb">
+							<p>D+2</p>
+						</div>
+						<div class="mask-content">
+							<div class="mask-text">
+								<p>Receba 2 dias depois do checkout com 12% de taxa.</p>
+							</div>
+							<div class="mask-button">
+								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Mais detalhes</button>
+							</div>
+						</div>
+					</div>
+					<div class=" type-box col-12 col-lg-4">
+						<div class="mask-hurb">
+							<p>D+7</p>
+						</div>
+						<div class="mask-content">
+							<div class="mask-text">
+								<p>Receba 7 dias do checkout com 9% de taxa.</p>
+							</div>
+							<div class="mask-button">
+								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Mais detalhes</button>
+							</div>
+						</div>
+					</div>
+					<div class="type-box col-12 col-lg-4">
+						<div class="mask-hurb">
+							<p>D+15</p>
+						</div>
+						<div class="mask-content">
+							<div class="mask-text">
+								<p>Receba 15 dias depois do checkout com 6% de taxa.</p>
+							</div>
+							<div class="mask-button">
+								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Mais detalhes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--Modal 1-->
+				<div id="myModal" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+				
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">D+2</h4>
+						</div>
+						<div class="modal-body">
+							<p class="modal-presentation">Escolhendo o tipo de antecipação D+2, você receberá o pagamento 2 dias após o faturamento, com um desconto de 12% em cima da quantia solicitada.</p>
+							<hr>
+							<h3>Exemplo:</h3>
+							<br>
+							<p>Quantia solicitada: R$30.000,00</p>
+							<p>Taxa: 12%</p>
+							<p>Valor taxado: R$3.400,00</p>
+							<p>Valor a ser recebido: R$26.400,00</p>
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				
+					</div>
+				</div>
+				
+				<!--Modal 2-->
+				<div id="myModal2" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+				
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">D+7</h4>
+						</div>
+						<div class="modal-body">
+							<p>Escolhendo o tipo de antecipação D+7, você receberá o pagamento 7 dias após o faturamento, com um desconto de 9% em cima da quantia solicitada.</p>
+							<h3>Exemplo:</h3>
+							<br>
+							<p>Quantia solicitada: R$30.000,00</p>
+							<p>Taxa: 9%</p>
+							<p>Valor taxado: R$2,700,00</p>
+							<p>Valor a ser recebido: R$27.300,00</p>
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				
+					</div>
+				</div>
+				
+				<!--Modal 3-->
+				<div id="myModal3" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+				
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">D+15</h4>
+						</div>
+						<div class="modal-body">
+							<p>Escolhendo o tipo de antecipação D+15, você receberá o pagamento 15 dias após o faturamento, com um desconto de 6% em cima da quantia solicitada.</p>
+							<h3>Exemplo:</h3>
+							<br>
+							<p>Quantia solicitada: R$30.000,00</p>
+							<p>Taxa: 6%</p>
+							<p>Valor taxado: R$1.800,00</p>
+							<p>Valor a ser recebido: R$28.200,00</p>
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<br><br><br>
+		<hr>
+
+		<div class="page-footer">
+			<img src="../icons/hurb-logo.png" width="250rem" height="100rem">
+        </div>
+    
+        <script src="../js/MenuParceiro.js"></script>
+    </body>
+</html>

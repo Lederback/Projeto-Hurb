@@ -1,0 +1,87 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  margin: 0;
+  color: #000000;
+}
+
+.menu {
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	height: 55px;
+	background-color: #3468FC;
+}
+
+.menu a {
+	color: white;
+	display: inline;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.menu p {
+	display: inline;
+	color: white;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.menu a:hover {
+	background-color: white;
+	color: #3468FC;
+	text-decoration: none;
+}
+
+#T_menu {
+	margin-top: 17px;
+}
+
+#H_menu {
+	font-weight: bold;
+	text-align: left;
+	font-size: 25px;
+	margin-top: 9px;
+
+}
+
+#L_menu {
+	text-align: right;
+	margin-top: 17px;
+}
+
+.page-body {
+  margin-left: 1.5%;
+}
+
+.text-box {
+  width: 320px;
+  height: 30px;
+}
+
+.pixescolha {
+  height: 40px;
+}
+
+.mesmalinha {
+  display: inline-block;
+}
+
+#hotel-name,
+#cnpj-hotel,
+#cell-hotel,
+#email-hotel,
+#logradouro-hotel,
+#logradouro-name-hotel,
+#neighbourhood-hotel,
+#number-hotel,
+#zip-hotel,
+#state-hotel,
+#account-name,
+#account-number,
+#agency {
+  color: black;
+  font-size: 32px;
+  font-weight: 400;
+
+}

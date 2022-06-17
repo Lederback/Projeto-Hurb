@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<!--Adding title to page, choosing css file and linking font to file-->
+
+<head>
+	<meta charset="UTF-8">
+
+	<link href="../css/SolicitaçãoAntecipação.css" rel="stylesheet">
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
+	<title>
+		Hurb - Solicitação
+	</title>
+</head>
+
+<body>
+	<!--Main section-->
+	<div class="menu">
+
+		<div class="col-sm-2" id="H_menu">
+			<p> Hurb </p>
+		</div>
+
+		<div class="col-sm-8" id="T_menu">
+			<a href="MenuParceiro.html"> Menu </a>
+			<p> | </p>
+			<a href="EditarPerfil.html"> Perfil </a>
+			<p> | </p>
+			<a href="SolicitaçãoAntecipação.html"> Faturar </a>
+			<p> | </p>
+			<a href="HistoricoSolicitacao.html"> Histórico </a>
+		</div>
+
+		<div class="col-sm-2" id="L_menu">
+			<a href="index.html"> Log Out </a>
+		</div>
+
+	</div>
+	<br><br><br>
+	<div class="txt">
+		<div>
+			<b class="ttl"> Solicitação de antecipação</b>
+		</div>
+		<br>
+		<div>
+			<b> Saldo:</b>
+			<p id="saldo" class="valor_saldo"></p>
+		</div>
+		<br>
+		<div>
+			<b>Qual o montante desejado:</b>
+			<input type="number" id="montante" min="0">
+			<b style="font-size: 85%;">*Valor máximo: <span id="valMax"></span></b>
+		</div>
+		<br>
+		<button id="button-color" type="button" class="btn btn-primary" onclick="simulate()">Simular</button>
+		<br><br>
+		<div id="value-option">
+			<p id="min-value"></p>
+		</div>
+
+		<form>
+			<div class="choose">
+				<div>
+					<b>Qual tipo de antecipação?</b>
+					<div class="radio" id="tipoAnt">
+						<label><input onclick="calc(0.12)" type="radio" name="optradio">D+2</label>
+						<br>
+						<label><input onclick="calc(0.09)" type="radio" name="optradio">D+7</label>
+						<br>
+						<label><input onclick="calc(0.06)" type="radio" name="optradio">D+15</label>
+						<br>
+						<label><input onclick="calc(0)" type="radio" name="optradio">D+30</label>
+					</div>
+				</div>
+				<div class="espaçamento1">
+					<b id="receberá">Você receberá:</b>
+					<b id="taxado">Foi taxado:</b>
+				</div>
+			</div>
+		</form>
+		<br><br>
+		<div>
+			<b>Forma de recebimento do pagamento:</b>
+		</div>
+		<div class="radio">
+			<label><input type="radio" name="opt2radio">Pix</label>
+		</div>
+		<div class="radio">
+			<label><input type="radio" name="opt2radio">Transferência bancária</label>
+		</div>
+		<br><br>
+	</div>
+	<div>
+		<div class="centralize-button">
+			<button onclick="addTable()" id="button-color" type="button" class="btn btn-primary" data-toggle="modal"
+				data-target="#exampleModal">
+				Fechar pedido
+			</button>
+		</div>
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title" id="exampleModalLabel">Confirmação de pedido</h2>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<h4>Você está antecipando as seguintes reservas</h4>
+						<table id="table" style="width: 80%;">
+							<tr>
+								<th>ID</th>
+								<th>Valor</th>
+							</tr>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+						<button onclick="confirmar()" type="button" class="btn btn-primary"
+							data-dismiss="modal">Confirmar pedido</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br><br>
+
+	<hr>
+	<div class="page-footer">
+		<img src="../icons/hurb-logo.png" width="250rem" height="100rem">
+	</div>
+
+	<script src="../js/SolicitaçãoAntecipação.js"></script>
+</body>
+
+</html>

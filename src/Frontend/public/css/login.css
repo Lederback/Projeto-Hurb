@@ -1,0 +1,32 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    width: initial;
+}
+
+.header {
+    display: flex;
+    /**/
+    flex-direction: column;
+    /*alinha os objetos em coluna*/
+    gap: 50px;
+    /*espaçamento entre os objetos*/
+    align-items: center;
+    /*alinha os objetos no centro da tela*/
+    justify-content: center;
+}
+
+.txt {
+    font-weight: bold;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #022A97;
+}
+
+body {
+    padding: 3%;
+    background-color: #3468FC;
+}
