@@ -183,7 +183,7 @@ function showPartnerData(){
                                                 <td class="hotel-name">` + objeto[i].RazaoSocial + `</td>
                                                 <td class="hotel-state">` + objeto[i].Estado + `</td>
                                                 <td class="hotel-tel">` + objeto[i].Celular + `</td>
-                                                <td class="hotel-more"><a href="Detalhes do Hotel.html" onclick="sendID(` + objeto[0].id + `)">Ver Mais</a></td>
+                                                <td class="hotel-more"><a href="Detalhes do Hotel.html" onclick="sendID(` + objeto[i].id + `)">Ver Mais</a></td>
                                             </tr>`);
             }
             else{
