@@ -1,8 +1,8 @@
-console.log(localStorage.getItem("idHurb"));
+console.log(sessionStorage.getItem("idHurb"));
 
 $(document).ready(function(){
     //Taking ranking info from database.
-    var url = "https://projeto-hurb-grupo1.herokuapp.com/getPartnerDataByID/" + localStorage.getItem("idHurb");
+    var url = "https://projeto-hurb-grupo1.herokuapp.com/getPartnerDataByID/" + sessionStorage.getItem("idHurb");
 
     $.get(url, function(resultado){
         var objeto = JSON.parse(resultado);

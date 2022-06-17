@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-    var url = "https://projeto-hurb-grupo1.herokuapp.com/getPartnerDataByID/" + localStorage.getItem("id_used"); 
+    var url = "https://projeto-hurb-grupo1.herokuapp.com/getPartnerDataByID/" + sessionStorage.getItem("id_used"); 
 
     $.get(url, function(resultado){
         var objeto = JSON.parse(resultado);

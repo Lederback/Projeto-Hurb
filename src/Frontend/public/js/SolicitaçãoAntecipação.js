@@ -34,7 +34,7 @@ var minValue = 0;
 var max = 0;
 
 function getAllReservations() {
-    var url = "https://projeto-hurb-grupo1.herokuapp.com/getReservasNaoFaturadas/" + localStorage.getItem("id_used");
+    var url = "https://projeto-hurb-grupo1.herokuapp.com/getReservasNaoFaturadas/" + sessionStorage.getItem("id_used");
 
     $.get(url, function (resultado) {
         var objeto = JSON.parse(resultado)
@@ -85,7 +85,7 @@ function simulate() {
 }
 
 $(document).ready(function () {
-    var url = "https://projeto-hurb-grupo1.herokuapp.com/getValorReservasNaoFaturadas/" + localStorage.getItem("id_used");
+    var url = "https://projeto-hurb-grupo1.herokuapp.com/getValorReservasNaoFaturadas/" + sessionStorage.getItem("id_used");
 
     $.get(url, function (resultado) {
         var objeto = JSON.parse(resultado)
@@ -107,7 +107,7 @@ function confirmar() {
         type: 'POST',
         url: "https://projeto-hurb-grupo1.herokuapp.com/postInvoiceData",
         data: {
-            EstabelecimentoID: localStorage.getItem("id_used"),
+            EstabelecimentoID: sessionStorage.getItem("id_used"),
             TipoAntecipacaoID: tpAnt,
             NotaFiscal: 231521,
             ValorRecebido: recebido,
@@ -169,7 +169,7 @@ function updateAmountData() {
         type: 'POST',
         url: "https://projeto-hurb-grupo1.herokuapp.com/postPartnerData",
         data: {
-            id: localStorage.getItem("id_used")
+            id: sessionStorage.getItem("id_used")
         }
     }).done(function () {
         console.log("enviado com sucesso");

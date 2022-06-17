@@ -11,8 +11,8 @@ function checkLogin(){
         console.log(objeto[0].Estabelecimento_id);
         //console.log(Object.keys(objeto).length);
         
-        localStorage.clear();
-        localStorage.setItem("id_used", objeto[0].Estabelecimento_id);
+        sessionStorage.clear();
+        sessionStorage.setItem("id_used", objeto[0].Estabelecimento_id);
         
 
         if(objeto[0].Senha == PASSWORD){loadPage(objeto[0].Estabelecimento_id);}

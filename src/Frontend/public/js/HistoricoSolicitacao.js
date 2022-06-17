@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    var url1 = "https://projeto-hurb-grupo1.herokuapp.com/getInvoiceDataForPartner/" + localStorage.getItem("id_used");
-    var url2 = "https://projeto-hurb-grupo1.herokuapp.com/getPaidInvoiceDataForPartner/" + localStorage.getItem("id_used");
+    var url1 = "https://projeto-hurb-grupo1.herokuapp.com/getInvoiceDataForPartner/" + sessionStorage.getItem("id_used");
+    var url2 = "https://projeto-hurb-grupo1.herokuapp.com/getPaidInvoiceDataForPartner/" + sessionStorage.getItem("id_used");
 
     //Taking ranking info from database.
     $.get(url1, function(resultado){

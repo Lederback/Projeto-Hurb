@@ -264,6 +264,6 @@ function showSearch(){
 }
 
 function sendID(id){
-    localStorage.clear();
-    localStorage.setItem("idHurb", id);
+    sessionStorage.clear();
+    sessionStorage.setItem("idHurb", id);
 }
