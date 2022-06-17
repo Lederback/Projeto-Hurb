@@ -7,11 +7,13 @@ app.use(express.json());
 const sqlite3 = require('sqlite3').verbose();
 const DBPATH = 'DataBase/BancoHurb.db';
 
-const hostname = '127.0.0.1';
-const port = 5555;
+const port = process.env.PORT || 5555;
 
-app.listen(port, hostname, () => {
-	console.log(`Server running at http://${hostname}:${port}/`);
+app.use(express.static("src/Frontend/public"));
+app.use(express.static("src/Frontend/public/html"));
+
+app.listen(port, () => {
+	console.log(`Server running at :${port}/`);
 });
 
 app.get('/serverStatus')
