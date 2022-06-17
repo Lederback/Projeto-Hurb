@@ -4,7 +4,7 @@ $(document).ready(function(){
     changeSearchType()
 
     //Taking ranking info from database.
-    $.get("http://127.0.0.1:5555/getRanking", function(resultado){
+    $.get("https://projeto-hurb-grupo1.herokuapp.com/getRanking", function(resultado){
         var objeto = JSON.parse(resultado);
         var aux = 1;
         for(i = 0; i < Object.keys(objeto).length; i ++){
@@ -31,7 +31,7 @@ $(document).ready(function(){
     });
 
     //Taking the general info section from database.
-    $.get("http://127.0.0.1:5555/getGeneralVision", function(resultado){
+    $.get("https://projeto-hurb-grupo1.herokuapp.com/getGeneralVision", function(resultado){
         var objeto = JSON.parse(resultado);
         $("#total-amount-anticipations").html(objeto[0].TotalDeAntecipações);
         $("#total-amount-advance").html((objeto[0].ValorTotalAntecipado).toFixed(2));
@@ -103,7 +103,7 @@ function changeSearchType(){
 }
 
 function showInvoiceData(){
-    $.get("http://127.0.0.1:5555/getInvoiceData", function(resultado){
+    $.get("https://projeto-hurb-grupo1.herokuapp.com/getInvoiceData", function(resultado){
         var objeto = JSON.parse(resultado);
         var aux = 1;
         for(i = 0; i < Object.keys(objeto).length; i ++){
@@ -138,7 +138,7 @@ function showInvoiceData(){
 }
 
 function showPaidInvoiceData(){
-    $.get("http://127.0.0.1:5555/getPaidInvoiceData", function(resultado){
+    $.get("https://projeto-hurb-grupo1.herokuapp.com/getPaidInvoiceData", function(resultado){
         var objeto = JSON.parse(resultado);
         var aux = 1;
         for(i = 0; i < Object.keys(objeto).length; i ++){
@@ -173,7 +173,7 @@ function showPaidInvoiceData(){
 }
 
 function showPartnerData(){
-    $.get("http://127.0.0.1:5555/getPartnerData", function(resultado){
+    $.get("https://projeto-hurb-grupo1.herokuapp.com/getPartnerData", function(resultado){
         var objeto = JSON.parse(resultado);
         var aux = 1;
         for(i = 0; i < Object.keys(objeto).length; i ++){
@@ -206,7 +206,7 @@ function showSearch(){
 
     switch(document.getElementById("search-type").value){
         case "Estabelecimento":
-            var url = "http://127.0.0.1:5555/getPartnerDataByID/" + $("#search-text").val();
+            var url = "https://projeto-hurb-grupo1.herokuapp.com/getPartnerDataByID/" + $("#search-text").val();
 
             $.get(url, function(resultado){
                 var objeto = JSON.parse(resultado);
@@ -221,7 +221,7 @@ function showSearch(){
             });
             break;
         case "Pendentes":
-            var url = "http://127.0.0.1:5555/getInvoiceDataByNf/" + $("#search-text").val();
+            var url = "https://projeto-hurb-grupo1.herokuapp.com/getInvoiceDataByNf/" + $("#search-text").val();
 
             console.log(url);
 
@@ -242,7 +242,7 @@ function showSearch(){
             });
             break;
         case "Passadas":
-            var url = "http://127.0.0.1:5555/getPaidInvoiceDataByNf/" + $("#search-text").val();
+            var url = "https://projeto-hurb-grupo1.herokuapp.com/getPaidInvoiceDataByNf/" + $("#search-text").val();
 
             $.get(url, function(resultado){
                 var objeto = JSON.parse(resultado);

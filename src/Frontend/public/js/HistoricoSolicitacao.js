@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    var url1 = "http://127.0.0.1:5555/getInvoiceDataForPartner/" + localStorage.getItem("id_used");
-    var url2 = "http://127.0.0.1:5555/getPaidInvoiceDataForPartner/" + localStorage.getItem("id_used");
+    var url1 = "https://projeto-hurb-grupo1.herokuapp.com/getInvoiceDataForPartner/" + localStorage.getItem("id_used");
+    var url2 = "https://projeto-hurb-grupo1.herokuapp.com/getPaidInvoiceDataForPartner/" + localStorage.getItem("id_used");
 
     //Taking ranking info from database.
     $.get(url1, function(resultado){
@@ -78,7 +78,7 @@ function modal(idFatura) {
                                 <th class="checkout-modal" id="right-border-table">Data do Check-out</th>
                             </tr>`);
 
-    var url = "http://127.0.0.1:5555/getReservasFaturadas/" + idFatura;
+    var url = "https://projeto-hurb-grupo1.herokuapp.com/getReservasFaturadas/" + idFatura;
     console.log(idFatura)
 
     $.get(url, function(resultado){

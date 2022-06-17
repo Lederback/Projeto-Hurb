@@ -34,7 +34,7 @@ var minValue = 0;
 var max = 0;
 
 function getAllReservations() {
-    var url = "http://127.0.0.1:5555/getReservasNaoFaturadas/" + localStorage.getItem("id_used");
+    var url = "https://projeto-hurb-grupo1.herokuapp.com/getReservasNaoFaturadas/" + localStorage.getItem("id_used");
 
     $.get(url, function (resultado) {
         var objeto = JSON.parse(resultado)
@@ -85,7 +85,7 @@ function simulate() {
 }
 
 $(document).ready(function () {
-    var url = "http://127.0.0.1:5555/getValorReservasNaoFaturadas/" + localStorage.getItem("id_used");
+    var url = "https://projeto-hurb-grupo1.herokuapp.com/getValorReservasNaoFaturadas/" + localStorage.getItem("id_used");
 
     $.get(url, function (resultado) {
         var objeto = JSON.parse(resultado)
@@ -105,7 +105,7 @@ $(document).ready(function () {
 function confirmar() {
     $.ajax({
         type: 'POST',
-        url: "http://127.0.0.1:5555/postInvoiceData",
+        url: "https://projeto-hurb-grupo1.herokuapp.com/postInvoiceData",
         data: {
             EstabelecimentoID: localStorage.getItem("id_used"),
             TipoAntecipacaoID: tpAnt,
@@ -144,7 +144,7 @@ function confirmar() {
 function changeReservationFaturaId(fatura, reserva) {
     $.ajax({
         type: 'POST',
-        url: "http://127.0.0.1:5555/postReservationData",
+        url: "https://projeto-hurb-grupo1.herokuapp.com/postReservationData",
         data: {
             FaturaID: fatura,
             ReservaID: reserva
@@ -157,7 +157,7 @@ function changeReservationFaturaId(fatura, reserva) {
 function updateAmountData() {
     $.ajax({
         type: 'POST',
-        url: "http://127.0.0.1:5555/postTypeData",
+        url: "https://projeto-hurb-grupo1.herokuapp.com/postTypeData",
         data: {
             TipoAntecipacaoID: tpAnt
         }
@@ -167,7 +167,7 @@ function updateAmountData() {
 
     $.ajax({
         type: 'POST',
-        url: "http://127.0.0.1:5555/postPartnerData",
+        url: "https://projeto-hurb-grupo1.herokuapp.com/postPartnerData",
         data: {
             id: localStorage.getItem("id_used")
         }
@@ -177,7 +177,7 @@ function updateAmountData() {
 }
 
 function getTotalFatura() {
-    var url = "http://127.0.0.1:5555/getTotalFatura";
+    var url = "https://projeto-hurb-grupo1.herokuapp.com/getTotalFatura";
 
     $.get(url, function (resultado) {
         idFatura = resultado[0].FaturaID;
