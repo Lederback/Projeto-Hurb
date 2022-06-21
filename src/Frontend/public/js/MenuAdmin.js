@@ -1,14 +1,14 @@
 let searchType = "Estabelecimento";
 
-$(document).ready(function(){
+$(document).ready(function () {
     changeSearchType()
 
     //Taking ranking info from database.
-    $.get("https://projeto-hurb-grupo1.herokuapp.com/getRanking", function(resultado){
+    $.get("https://projeto-hurb-grupo1.herokuapp.com/getRanking", function (resultado) { //monta o ranking dos principais antecipadores
         var objeto = JSON.parse(resultado);
         var aux = 1;
-        for(i = 0; i < Object.keys(objeto).length; i ++){
-            if (aux == 1){
+        for (i = 0; i < Object.keys(objeto).length; i++) {
+            if (aux == 1) {
                 $("#ranking-table").append(`<tr>
                                                 <td class="ranking-table-position">` + (i + 1) + `</td>
                                                 <td class="ranking-table-id">` + objeto[i].id + `</td>
@@ -17,7 +17,7 @@ $(document).ready(function(){
                                                 <td class="ranking-table-total">` + (objeto[i].ValorAntecipado).toFixed(2) + `</td>
                                             </tr>`);
             }
-            else{
+            else {
                 $("#ranking-table").append(`<tr>
                                                 <td class="ranking-table-position" style="background-color: #F2F2F2">` + (i + 1) + `</td>
                                                 <td class="ranking-table-id" style="background-color: #F2F2F2">` + objeto[i].id + `</td>
@@ -31,7 +31,7 @@ $(document).ready(function(){
     });
 
     //Taking the general info section from database.
-    $.get("https://projeto-hurb-grupo1.herokuapp.com/getGeneralVision", function(resultado){
+    $.get("https://projeto-hurb-grupo1.herokuapp.com/getGeneralVision", function (resultado) { //mostra as informações de "Quantidade de Antecipações", "Valor Total Antecipado", "Valor Total Taxado" e "Tipo Mais Solicitado" na tela principal do admin
         var objeto = JSON.parse(resultado);
         $("#total-amount-anticipations").html(objeto[0].TotalDeAntecipações);
         $("#total-amount-advance").html((objeto[0].ValorTotalAntecipado).toFixed(2));
@@ -40,7 +40,7 @@ $(document).ready(function(){
     });
 });
 
-function resetTable(){
+function resetTable() { //reseta a tabela sempre que o tipo de pesquisa for alterado
     $("#search-table").html(`<tr id="partner-list">
                                         <th class="hotel-id" id="left-border-table">ID</th>
                                         <th class="hotel-name">Razão Social</th>
@@ -58,7 +58,7 @@ function resetTable(){
                                         <th class="invoice-date" id="right-border-table">Data</th>
                                     </tr>`);
 
-    switch(document.getElementById("search-type").value){
+    switch (document.getElementById("search-type").value) {
         case "Estabelecimento":
             searchType = "Estabelecimento";
             $("#partner-list").css("display", "flex");
@@ -77,10 +77,10 @@ function resetTable(){
     }
 }
 
-function changeSearchType(){
+function changeSearchType() { //muda o modelo da tabela de acordo com o tipo de pesquisa
     resetTable();
 
-    switch(document.getElementById("search-type").value){
+    switch (document.getElementById("search-type").value) {
         case "Estabelecimento":
             searchType = "Estabelecimento";
             showPartnerData();
@@ -102,12 +102,12 @@ function changeSearchType(){
     }
 }
 
-function showInvoiceData(){
-    $.get("https://projeto-hurb-grupo1.herokuapp.com/getInvoiceData", function(resultado){
+function showInvoiceData() { //pega as faturas que estão pendentes quando o tipo de pesquisa for por "Solicitações Pendentes"
+    $.get("https://projeto-hurb-grupo1.herokuapp.com/getInvoiceData", function (resultado) {
         var objeto = JSON.parse(resultado);
         var aux = 1;
-        for(i = 0; i < Object.keys(objeto).length; i ++){
-            if(aux == 1){
+        for (i = 0; i < Object.keys(objeto).length; i++) {
+            if (aux == 1) {
                 $("#search-table").append(`<tr id="invoice-list">
                                                 <td class="invoice-note">` + objeto[i].NotaFiscal + `</td>
                                                 <td class="invoice-partner-id">` + objeto[i].IDdoParceiro + `</td>
@@ -118,42 +118,7 @@ function showInvoiceData(){
                                                 <td class="invoice-date">` + objeto[i].Data + `</td>
                                             </tr>`);
             }
-            else{
-                console.log("result");
-                $("#search-table").append(`<tr id="invoice-list">
-                                                <td class="invoice-note" style="background-color: #F2F2F2">` + objeto[i].NotaFiscal + `</td>
-                                                <td class="invoice-partner-id" style="background-color: #F2F2F2">` + objeto[i].IDdoParceiro + `</td>
-                                                <td class="invoice-received-value" style="background-color: #F2F2F2">` + (objeto[i].ValorRecebido).toFixed(2) + `</td>
-                                                <td class="invoice-taxed-value" style="background-color: #F2F2F2">` + (objeto[i].ValorTaxado).toFixed(2) + `</td>
-                                                <td class="invoice-type" style="background-color: #F2F2F2">` + objeto[i].TipoAntecipação + `</td>
-                                                <td class="invoice-status" style="background-color: #F2F2F2">` + objeto[i].Status + `</td>
-                                                <td class="invoice-date" style="background-color: #F2F2F2">` + objeto[i].Data + `</td>
-                                            </tr>`);
-            }
-            
-            aux = -aux;
-        }
-        $("#invoice-list").css("display", "flex");
-    });
-}
-
-function showPaidInvoiceData(){
-    $.get("https://projeto-hurb-grupo1.herokuapp.com/getPaidInvoiceData", function(resultado){
-        var objeto = JSON.parse(resultado);
-        var aux = 1;
-        for(i = 0; i < Object.keys(objeto).length; i ++){
-            if(aux == 1){
-                $("#search-table").append(`<tr id="invoice-list">
-                                                <td class="invoice-note">` + objeto[i].NotaFiscal + `</td>
-                                                <td class="invoice-partner-id">` + objeto[i].IDdoParceiro + `</td>
-                                                <td class="invoice-received-value">` + (objeto[i].ValorRecebido).toFixed(2) + `</td>
-                                                <td class="invoice-taxed-value">` + (objeto[i].ValorTaxado).toFixed(2) + `</td>
-                                                <td class="invoice-type">` + objeto[i].TipoAntecipação + `</td>
-                                                <td class="invoice-status">` + objeto[i].Status + `</td>
-                                                <td class="invoice-date">` + objeto[i].Data + `</td>
-                                            </tr>`);
-            }
-            else{
+            else {
                 console.log("result");
                 $("#search-table").append(`<tr id="invoice-list">
                                                 <td class="invoice-note" style="background-color: #F2F2F2">` + objeto[i].NotaFiscal + `</td>
@@ -172,12 +137,47 @@ function showPaidInvoiceData(){
     });
 }
 
-function showPartnerData(){
-    $.get("https://projeto-hurb-grupo1.herokuapp.com/getPartnerData", function(resultado){
+function showPaidInvoiceData() { //pega as faturas que estão pagas quando o tipo de pesquisa for por "Solicitações Passadas"
+    $.get("https://projeto-hurb-grupo1.herokuapp.com/getPaidInvoiceData", function (resultado) {
         var objeto = JSON.parse(resultado);
         var aux = 1;
-        for(i = 0; i < Object.keys(objeto).length; i ++){
-            if (aux == 1){
+        for (i = 0; i < Object.keys(objeto).length; i++) {
+            if (aux == 1) {
+                $("#search-table").append(`<tr id="invoice-list">
+                                                <td class="invoice-note">` + objeto[i].NotaFiscal + `</td>
+                                                <td class="invoice-partner-id">` + objeto[i].IDdoParceiro + `</td>
+                                                <td class="invoice-received-value">` + (objeto[i].ValorRecebido).toFixed(2) + `</td>
+                                                <td class="invoice-taxed-value">` + (objeto[i].ValorTaxado).toFixed(2) + `</td>
+                                                <td class="invoice-type">` + objeto[i].TipoAntecipação + `</td>
+                                                <td class="invoice-status">` + objeto[i].Status + `</td>
+                                                <td class="invoice-date">` + objeto[i].Data + `</td>
+                                            </tr>`);
+            }
+            else {
+                console.log("result");
+                $("#search-table").append(`<tr id="invoice-list">
+                                                <td class="invoice-note" style="background-color: #F2F2F2">` + objeto[i].NotaFiscal + `</td>
+                                                <td class="invoice-partner-id" style="background-color: #F2F2F2">` + objeto[i].IDdoParceiro + `</td>
+                                                <td class="invoice-received-value" style="background-color: #F2F2F2">` + (objeto[i].ValorRecebido).toFixed(2) + `</td>
+                                                <td class="invoice-taxed-value" style="background-color: #F2F2F2">` + (objeto[i].ValorTaxado).toFixed(2) + `</td>
+                                                <td class="invoice-type" style="background-color: #F2F2F2">` + objeto[i].TipoAntecipação + `</td>
+                                                <td class="invoice-status" style="background-color: #F2F2F2">` + objeto[i].Status + `</td>
+                                                <td class="invoice-date" style="background-color: #F2F2F2">` + objeto[i].Data + `</td>
+                                            </tr>`);
+            }
+
+            aux = -aux;
+        }
+        $("#invoice-list").css("display", "flex");
+    });
+}
+
+function showPartnerData() { //mostra os dados do hotel quando o tipo de pesquisa for por "Estabelecimento"
+    $.get("https://projeto-hurb-grupo1.herokuapp.com/getPartnerData", function (resultado) {
+        var objeto = JSON.parse(resultado);
+        var aux = 1;
+        for (i = 0; i < Object.keys(objeto).length; i++) {
+            if (aux == 1) {
                 $("#search-table").append(`<tr id="partner-list">
                                                 <td class="hotel-id">`+ objeto[i].id + `</td>
                                                 <td class="hotel-name">` + objeto[i].RazaoSocial + `</td>
@@ -186,7 +186,7 @@ function showPartnerData(){
                                                 <td class="hotel-more"><a href="Detalhes do Hotel.html" onclick="sendID(` + objeto[i].id + `)">Ver Mais</a></td>
                                             </tr>`);
             }
-            else{
+            else {
                 $("#search-table").append(`<tr id="partner-list">
                                                 <td class="hotel-id" style="background-color: #F2F2F2">`+ objeto[i].id + `</td>
                                                 <td class="hotel-name" style="background-color: #F2F2F2">` + objeto[i].RazaoSocial + `</td>
@@ -195,20 +195,20 @@ function showPartnerData(){
                                                 <td class="hotel-more" style="background-color: #F2F2F2"><a href="Detalhes do Hotel.html" onclick="sendID(` + objeto[i].id + `)" style="background-color: #F2F2F2">Ver Mais</a></td>
                                             </tr>`);
             }
-            
+
             aux = -aux;
         }
     });
 }
 
-function showSearch(){
+function showSearch() { //mostra a tabela de acordo com o parametro que foi pesquisado pelo admin
     resetTable();
 
-    switch(document.getElementById("search-type").value){
+    switch (document.getElementById("search-type").value) {
         case "Estabelecimento":
             var url = "https://projeto-hurb-grupo1.herokuapp.com/getPartnerDataByID/" + $("#search-text").val();
 
-            $.get(url, function(resultado){
+            $.get(url, function (resultado) {
                 var objeto = JSON.parse(resultado);
 
                 $("#search-table").append(`<tr id="partner-list">
@@ -225,7 +225,7 @@ function showSearch(){
 
             console.log(url);
 
-            $.get(url, function(resultado){
+            $.get(url, function (resultado) {
                 var objeto = JSON.parse(resultado);
 
                 $("#search-table").append(`<tr id="invoice-list">
@@ -244,7 +244,7 @@ function showSearch(){
         case "Passadas":
             var url = "https://projeto-hurb-grupo1.herokuapp.com/getPaidInvoiceDataByNf/" + $("#search-text").val();
 
-            $.get(url, function(resultado){
+            $.get(url, function (resultado) {
                 var objeto = JSON.parse(resultado);
 
                 $("#search-table").append(`<tr id="invoice-list">
@@ -263,7 +263,7 @@ function showSearch(){
     }
 }
 
-function sendID(id){
-    sessionStorage.clear();
-    sessionStorage.setItem("idHurb", id);
+function sendID(id) {
+    localStorage.clear();
+    localStorage.setItem("idHurb", id);
 }

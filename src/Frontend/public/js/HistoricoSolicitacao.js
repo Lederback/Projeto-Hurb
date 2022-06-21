@@ -1,14 +1,14 @@
-$(document).ready(function(){
-    var url1 = "https://projeto-hurb-grupo1.herokuapp.com/getInvoiceDataForPartner/" + sessionStorage.getItem("id_used");
-    var url2 = "https://projeto-hurb-grupo1.herokuapp.com/getPaidInvoiceDataForPartner/" + sessionStorage.getItem("id_used");
+$(document).ready(function () { 
+    var url1 = "https://projeto-hurb-grupo1.herokuapp.com/getInvoiceDataForPartner/" + localStorage.getItem("id_used");
+    var url2 = "https://projeto-hurb-grupo1.herokuapp.com/getPaidInvoiceDataForPartner/" + localStorage.getItem("id_used");
 
     //Taking ranking info from database.
-    $.get(url1, function(resultado){
+    $.get(url1, function (resultado) { //organiza as reservas pendentes na tabela, na área de admin
         var objeto = JSON.parse(resultado);
         console.log(objeto)
         var aux = 1;
-        for(i = 0; i < Object.keys(objeto).length; i ++){
-            if (aux == 1){
+        for (i = 0; i < Object.keys(objeto).length; i++) {
+            if (aux == 1) {
                 $("#pending-table").append(`<tr>
                                                 <td class="nf">` + objeto[i].NotaFiscal + `</td>
                                                 <td class="total-value">` + (objeto[i].ValorRecebido).toFixed(2) + `</td>
@@ -19,7 +19,7 @@ $(document).ready(function(){
                                                 <td class="details"><button onclick="modal(` + objeto[i].id + `)" type="button" class="btn" data-toggle="modal" data-target="#modal-hist">Mais detalhes</button></td>
                                             </tr>`);
             }
-            else{
+            else {
                 $("#pending-table").append(`<tr>
                                                 <td class="nf" style="background-color: #F2F2F2">` + objeto[i].NotaFiscal + `</td>
                                                 <td class="total-value" style="background-color: #F2F2F2">` + (objeto[i].ValorRecebido).toFixed(2) + `</td>
@@ -35,11 +35,11 @@ $(document).ready(function(){
         }
     });
 
-    $.get(url2, function(resultado){
+    $.get(url2, function (resultado) { //organiza as reservas finalizadas na tabela, na área de admin
         var objeto = JSON.parse(resultado);
         aux = 1;
-        for(i = 0; i < Object.keys(objeto).length; i ++){
-            if (aux == 1){
+        for (i = 0; i < Object.keys(objeto).length; i++) {
+            if (aux == 1) {
                 $("#past-table").append(`<tr>
                                             <td class="nf">` + objeto[i].NotaFiscal + `</td>
                                             <td class="total-value">` + (objeto[i].ValorRecebido).toFixed(2) + `</td>
@@ -50,7 +50,7 @@ $(document).ready(function(){
                                             <td class="details"><button onclick="modal(` + objeto[i].id + `)" type="button" class="btn" data-toggle="modal" data-target="#modal-hist">Mais detalhes</button></td>
                                         </tr>`);
             }
-            else{
+            else {
                 $("#past-table").append(`<tr>
                                             <td class="nf" style="background-color: #F2F2F2">` + objeto[i].NotaFiscal + `</td>
                                             <td class="total-value" style="background-color: #F2F2F2">` + (objeto[i].ValorRecebido).toFixed(2) + `</td>
@@ -69,7 +69,7 @@ $(document).ready(function(){
 
 
 
-function modal(idFatura) {
+function modal(idFatura) { //organiza as colunas da tabela do modal
     $("#modal-table").html(`<tr>
                                 <th class="id-modal" id="left-border-table">ID da Reserva</th>
                                 <th class="id-invoice-modal">ID da Fatura</th>
@@ -81,13 +81,13 @@ function modal(idFatura) {
     var url = "https://projeto-hurb-grupo1.herokuapp.com/getReservasFaturadas/" + idFatura;
     console.log(idFatura)
 
-    $.get(url, function(resultado){
+    $.get(url, function(resultado){ //
         var objeto = JSON.parse(resultado);
 
         console.log(objeto)
 
         var aux = 1;
-        for(i = 0; i < Object.keys(objeto).length; i ++){
+        for(i = 0; i < Object.keys(objeto).length; i ++){ //organiza as linhas brancas da tabela do modal  
             if (aux == 1){
                 $("#modal-table").append(`<tr>
                                                 <td class="id-modal">` + objeto[i].ID + `</td>
@@ -97,7 +97,7 @@ function modal(idFatura) {
                                                 <td class="checkout-modal">` + objeto[i].DataSaida + `</td>
                                             </tr>`);
             }
-            else{
+            else{ //organiza as linhas cinzas da tabela do modal
                 $("#modal-table").append(`<tr>
                                                 <td class="id-modal" style="background-color: #F2F2F2">` + objeto[i].ID + `</td>
                                                 <td class="id-invoice-modal" style="background-color: #F2F2F2">` + (objeto[i].IDFatura) + `</td>

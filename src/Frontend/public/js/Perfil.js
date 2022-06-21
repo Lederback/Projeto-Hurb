@@ -1,6 +1,6 @@
 
-$(document).ready(function(){
-    var url = "https://projeto-hurb-grupo1.herokuapp.com/getPartnerDataByID/" + sessionStorage.getItem("id_used"); 
+$(document).ready(function(){ //Pega os dados do hotel que está logado e mostra na tela de "Editar perfil", na área do hoteleiro
+    var url = "https://projeto-hurb-grupo1.herokuapp.com/getPartnerDataByID/" + localStorage.getItem("id_used"); 
 
     $.get(url, function(resultado){
         var objeto = JSON.parse(resultado);

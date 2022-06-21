@@ -18,7 +18,7 @@ app.listen(port, () => {
 
 app.get('/serverStatus')
 
-app.get('/getInvoiceDataForPartner/:id', (req, res) => {
+app.get('/getInvoiceDataForPartner/:id', (req, res) => { //pega as faturas não finalizadas do hotel que esta "logado"
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -46,7 +46,7 @@ app.get('/getInvoiceDataForPartner/:id', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.get('/getInvoiceData', (req, res) => {
+app.get('/getInvoiceData', (req, res) => { //Pega todas as faturas não finalizadas
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -75,7 +75,7 @@ app.get('/getInvoiceData', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.get('/getInvoiceDataByNf/:nf', (req, res) => {
+app.get('/getInvoiceDataByNf/:nf', (req, res) => { //filtro para pesquisas do admin, pesquisando pelo id da fatura
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -106,7 +106,7 @@ app.get('/getInvoiceDataByNf/:nf', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.get('/getPaidInvoiceData', (req, res) => {
+app.get('/getPaidInvoiceData', (req, res) => { //pega todas as faturas finalizadas
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -135,7 +135,7 @@ app.get('/getPaidInvoiceData', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.get('/getPaidInvoiceDataForPartner/:id', (req, res) => {
+app.get('/getPaidInvoiceDataForPartner/:id', (req, res) => { //pega faturas ja finalizadas, filtrando de acordo com o id do hotel
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -163,7 +163,7 @@ app.get('/getPaidInvoiceDataForPartner/:id', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.get('/getPaidInvoiceDataByNf/:nf', (req, res) => {
+app.get('/getPaidInvoiceDataByNf/:nf', (req, res) => { //pega faturas ja finalizadas, filtrando de acordo com o id da fatura
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -194,7 +194,7 @@ app.get('/getPaidInvoiceDataByNf/:nf', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.get('/getRanking', (req, res) => {
+app.get('/getRanking', (req, res) => { //pega as informações das quantidades de antecipações de cada hotel, montando o ranking em ordem decrescente
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -216,7 +216,7 @@ app.get('/getRanking', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.get('/getGeneralVision', (req, res) => {
+app.get('/getGeneralVision', (req, res) => { //pega as informações do dashboard da pagina principal do admin
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -237,7 +237,7 @@ app.get('/getGeneralVision', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.get('/getPartnerData', (req, res) => {
+app.get('/getPartnerData', (req, res) => { //pega as informações do parceiro para a página de detalhes do hotel por parte do admin
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -272,7 +272,7 @@ app.get('/getPartnerData', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.get('/getPartnerDataByID/:id', (req, res) => {
+app.get('/getPartnerDataByID/:id', (req, res) => { //pega as informações do parceiro para a página de detalhes do hotel por parte do hoteleiro
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -310,7 +310,7 @@ app.get('/getPartnerDataByID/:id', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.get('/checkLogin/:email', (req, res) => {
+app.get('/checkLogin/:email', (req, res) => { //confere as informações do login
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -330,13 +330,13 @@ app.get('/checkLogin/:email', (req, res) => {
 
 });
 
-app.get('/getValorReservasNaoFaturadas/:id', (req, res) => {
+app.get('/getValorReservasNaoFaturadas/:id', (req, res) => { //pega os valores das reservas não faturadas, para formar o valor total do saldo
 	res.statusCode = 200
-	res.setHeader('Access-Control-Allow-Origin', '*')
+	res.setHeader('Access-Control-Allow-Origin', '*')// Isso é importante para evitar o erro de CORS
 
 	const { id } = req.params;
 
-	var db = new sqlite3.Database(DBPATH)
+	var db = new sqlite3.Database(DBPATH) // Abre o banco
 	var sql = `SELECT SUM(Valor) AS Valor FROM Reserva WHERE Reserva.Fatura_id IS NULL AND Reserva.Estabelecimento_id = ?`
 
 	db.all(sql, id, (err, rows) => {
@@ -345,16 +345,16 @@ app.get('/getValorReservasNaoFaturadas/:id', (req, res) => {
 		}
 		res.send(JSON.stringify(rows))
 	})
-	db.close()
+	db.close()// Fecha o banco
 })
 
-app.get('/getReservasNaoFaturadas/:id', (req, res) => {
+app.get('/getReservasNaoFaturadas/:id', (req, res) => { //mostra quais são as reservas que formam o valor do saldo
 	res.statusCode = 200
-	res.setHeader('Access-Control-Allow-Origin', '*')
+	res.setHeader('Access-Control-Allow-Origin', '*')// Isso é importante para evitar o erro de CORS
 
 	const { id } = req.params;
 
-	var db = new sqlite3.Database(DBPATH);
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	var sql = `SELECT 
 					Reserva.id AS ID,
 					Reserva.Fatura_id AS IDFatura,
@@ -373,13 +373,13 @@ app.get('/getReservasNaoFaturadas/:id', (req, res) => {
 		}
 		res.send(JSON.stringify(rows))
 	})
-	db.close()
+	db.close()// Fecha o banco
 })
 
-app.post('/postInvoiceData', (req, res) => {
+app.post('/postInvoiceData', (req, res) => { //Adiciona uma nova fatura na tabela quando um valor é faturado pelo hoteleiro
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-	
+
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	var sql = `INSERT INTO Fatura (Estabelecimento_id, TipoAntecipacao_id, NotaFiscal, ValorRecebido, ValorTaxado, Data, Status)
 			 	VALUES 
@@ -397,10 +397,10 @@ app.post('/postInvoiceData', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.post('/postReservationData', (req, res) => {
+app.post('/postReservationData', (req, res) => { //atribui um id de fatura nas reservas que foram faturadas
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-	
+
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	var sql = `UPDATE Reserva SET Fatura_id = ? WHERE Reserva.id = ?`;
 
@@ -417,10 +417,10 @@ app.post('/postReservationData', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.post('/postTypeData', (req, res) => {
+app.post('/postTypeData', (req, res) => { //aumenta a quantidade de faturas feitas em determinado tipo de antecipação
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-	
+
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	var sql = `UPDATE TipoAntecipacao SET Quantidade = Quantidade + 1 WHERE TipoAntecipacao.id = ?`;
 
@@ -437,10 +437,10 @@ app.post('/postTypeData', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.post('/postPartnerData', (req, res) => {
+app.post('/postPartnerData', (req, res) => { //aumenta a quantidade de antecipações registradas em um determinado estabelecimento
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-	
+
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	var sql = `UPDATE Estabelecimento SET QuantidadeAntecipacao = QuantidadeAntecipacao + 1 WHERE Estabelecimento.id = ?`;
 
@@ -457,7 +457,7 @@ app.post('/postPartnerData', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-app.get('/getTotalFatura', (req, res) => {
+app.get('/getTotalFatura', (req, res) => { //seleciona o id da fatura mais recente
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*');
 
@@ -473,7 +473,7 @@ app.get('/getTotalFatura', (req, res) => {
 	db.close(); // Fecha o banco
 })
 
-app.get('/getReservasFaturadas/:id', (req, res) => {
+app.get('/getReservasFaturadas/:id', (req, res) => { //pega as reservas que já foram faturadas
 	res.statusCode = 200
 	res.setHeader('Access-Control-Allow-Origin', '*')
 
@@ -499,4 +499,3 @@ app.get('/getReservasFaturadas/:id', (req, res) => {
 	})
 	db.close()
 })
-

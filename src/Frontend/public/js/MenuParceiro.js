@@ -1,4 +1,4 @@
-function changePage(index){
+function changePage(index){ //muda a tela que está sendo apresentada no carrosel
     switch (index){
         case 0:
             window.location = 'SolicitaçãoAntecipação.html';
@@ -12,8 +12,8 @@ function changePage(index){
     }
 }
 
-$(document).ready(function(){
-    var url = "https://projeto-hurb-grupo1.herokuapp.com/getPartnerDataByID/" + sessionStorage.getItem("id_used"); 
+$(document).ready(function(){ //mostra uma mensagem de "bem-vindo" com o nome do hotel que está logado 
+    var url = "https://projeto-hurb-grupo1.herokuapp.com/getPartnerDataByID/" + localStorage.getItem("id_used"); 
     $.get(url, function(resultado){
         var objeto = JSON.parse(resultado);
         console.log(objeto);

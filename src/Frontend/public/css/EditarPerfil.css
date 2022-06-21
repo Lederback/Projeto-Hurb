@@ -50,9 +50,6 @@
 	margin-top: 17px;
 }
 
-.page-body {
-  margin-left: 1.5%;
-}
 
 .text-box {
   width: 320px;
@@ -67,21 +64,53 @@
   display: inline-block;
 }
 
-#hotel-name,
-#cnpj-hotel,
-#cell-hotel,
-#email-hotel,
-#logradouro-hotel,
-#logradouro-name-hotel,
-#neighbourhood-hotel,
-#number-hotel,
-#zip-hotel,
-#state-hotel,
-#account-name,
-#account-number,
-#agency {
-  color: black;
-  font-size: 32px;
-  font-weight: 400;
 
+.details {
+	display: flex;
+	flex-direction: column;
+	border: 3px solid #3468FC; 
+	margin: 20px;
+	margin-top: 50px;
+	border-radius: 20px;
+	padding-left: 50px;
+}
+
+.personal-info, .bank-info {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 100px;
+}
+
+#title {
+	margin-top: 10px;
+	font-size: 40px;
+	font-weight: 500;
+}
+
+#subtitle {
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.interior {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-color: #E2EAFF;
+	border: 1px solid darkblue;
+	border-radius: 10px;
+	width: 25rem;
+	height: 4.5rem;
+	font-size: 18px;
+}
+
+.half {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 130px;
 }

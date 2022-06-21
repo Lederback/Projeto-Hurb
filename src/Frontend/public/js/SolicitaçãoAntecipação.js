@@ -3,7 +3,7 @@ var taxado = 0;
 var recebido = 0;
 var idFatura = 0;
 
-function calc(taxa) {
+function calc(taxa) { //calcula o quanto será recebido e o quanto será taxado, se acordo com o montante selecionado pelo hoteleiro e pelo tipo de antecipação escolhido
     var montant = parseFloat(document.getElementById("valores").value);
     taxado = montant * taxa;
     recebido = montant - taxado;
@@ -33,8 +33,8 @@ var value = 0;
 var minValue = 0;
 var max = 0;
 
-function getAllReservations() {
-    var url = "https://projeto-hurb-grupo1.herokuapp.com/getReservasNaoFaturadas/" + sessionStorage.getItem("id_used");
+function getAllReservations() { //
+    var url = "https://projeto-hurb-grupo1.herokuapp.com/getReservasNaoFaturadas/" + localStorage.getItem("id_used");
 
     $.get(url, function (resultado) {
         var objeto = JSON.parse(resultado)
@@ -43,7 +43,7 @@ function getAllReservations() {
     })
 }
 
-function simulate() {
+function simulate() { //verifica se o valor desejado pelo hoteleiro é possível de ser faturado e, caso seja, verifica se o valor exato pode ser fatorado com base nos valores das diárias e, caso não possa, é apresentado dois valores mais próximos do valor desejado
     var montante = parseFloat(document.getElementById("montante").value);
     var count = -1;
     minInvoicedReservations = [];
@@ -84,8 +84,8 @@ function simulate() {
     }
 }
 
-$(document).ready(function () {
-    var url = "https://projeto-hurb-grupo1.herokuapp.com/getValorReservasNaoFaturadas/" + sessionStorage.getItem("id_used");
+$(document).ready(function () { //mostra o saldo do hotel e o valor máximo que ele pode faturar
+    var url = "https://projeto-hurb-grupo1.herokuapp.com/getValorReservasNaoFaturadas/" + localStorage.getItem("id_used");
 
     $.get(url, function (resultado) {
         var objeto = JSON.parse(resultado)
@@ -102,12 +102,12 @@ $(document).ready(function () {
     getAllReservations();
 })
 
-function confirmar() {
+function confirmar() { //cria uma nova fatura no banco com as informações da nova fatura e desconta o valor faturado do saldo do hoteleiro
     $.ajax({
         type: 'POST',
         url: "https://projeto-hurb-grupo1.herokuapp.com/postInvoiceData",
         data: {
-            EstabelecimentoID: sessionStorage.getItem("id_used"),
+            EstabelecimentoID: localStorage.getItem("id_used"),
             TipoAntecipacaoID: tpAnt,
             NotaFiscal: 231521,
             ValorRecebido: recebido,
@@ -141,7 +141,7 @@ function confirmar() {
     }
 }
 
-function changeReservationFaturaId(fatura, reserva) {
+function changeReservationFaturaId(fatura, reserva) {//atribui um id de fatura as reservas que foram faturadas
     $.ajax({
         type: 'POST',
         url: "https://projeto-hurb-grupo1.herokuapp.com/postReservationData",
@@ -154,7 +154,7 @@ function changeReservationFaturaId(fatura, reserva) {
     })
 }
 
-function updateAmountData() {
+function updateAmountData() { //aumenta a quantidade de antecipações registradas em um determinado estabelecimento e a quantidade de um determinado tipo de antecipação
     $.ajax({
         type: 'POST',
         url: "https://projeto-hurb-grupo1.herokuapp.com/postTypeData",
@@ -169,14 +169,14 @@ function updateAmountData() {
         type: 'POST',
         url: "https://projeto-hurb-grupo1.herokuapp.com/postPartnerData",
         data: {
-            id: sessionStorage.getItem("id_used")
+            id: localStorage.getItem("id_used")
         }
     }).done(function () {
         console.log("enviado com sucesso");
     })
 }
 
-function getTotalFatura() {
+function getTotalFatura() { //mostra o total da fatura que está sendo feita
     var url = "https://projeto-hurb-grupo1.herokuapp.com/getTotalFatura";
 
     $.get(url, function (resultado) {
@@ -184,7 +184,7 @@ function getTotalFatura() {
     })
 }
 
-function addTable() {
+function addTable() { //mostra a tabela que será mostrada na hora da confirmação de pedido
     $("#table").html(`<tr>
                         <th>ID</th>
                         <th>Valor</th>
